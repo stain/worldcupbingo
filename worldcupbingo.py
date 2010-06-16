@@ -10,6 +10,43 @@ DEFAULT_ROWS=4
 DEFAULT_COLUMNS=3
 DEBUG=False
 
+flags = {
+    "South Africa": "http://upload.wikimedia.org/wikipedia/commons/a/af/Flag_of_South_Africa.svg",
+    "Mexico": "http://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg",
+    "Uruguay": "http://upload.wikimedia.org/wikipedia/commons/f/fe/Flag_of_Uruguay.svg",
+    "France":"http://upload.wikimedia.org/wikipedia/commons/c/c3/Flag_of_France.svg",
+    "Korea Republic": "http://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg",
+    "Argentina": "http://upload.wikimedia.org/wikipedia/commons/1/1a/Flag_of_Argentina.svg",
+    "Nigeria": "http://upload.wikimedia.org/wikipedia/commons/7/79/Flag_of_Nigeria.svg",
+    "Greece":"http://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Greece.svg",
+    "Slovenia":"http://upload.wikimedia.org/wikipedia/commons/f/f0/Flag_of_Slovenia.svg",
+    "United States": "http://upload.wikimedia.org/wikipedia/commons/a/a4/Flag_of_the_United_States.svg",
+    "England":"http://upload.wikimedia.org/wikipedia/commons/b/be/Flag_of_England.svg",
+    "Algeria": "http://upload.wikimedia.org/wikipedia/commons/7/77/Flag_of_Algeria.svg",
+    "Germany": "http://upload.wikimedia.org/wikipedia/commons/b/ba/Flag_of_Germany.svg",
+    "Ghana":"http://upload.wikimedia.org/wikipedia/commons/1/19/Flag_of_Ghana.svg",
+    "Serbia":"http://upload.wikimedia.org/wikipedia/commons/f/ff/Flag_of_Serbia.svg",
+    "Australia": "http://upload.wikimedia.org/wikipedia/commons/b/b9/Flag_of_Australia.svg",
+    "Netherlands": "http://upload.wikimedia.org/wikipedia/commons/2/20/Flag_of_the_Netherlands.svg",
+    "Japan": "http://upload.wikimedia.org/wikipedia/commons/9/9e/Flag_of_Japan.svg",
+    "Cameroon": "http://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_Cameroon.svg",
+    "Denmark": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/2000px-Flag_of_Denmark.svg.png",
+    "New Zealand": "http://upload.wikimedia.org/wikipedia/commons/3/3e/Flag_of_New_Zealand.svg",
+    "Paraguay": "http://upload.wikimedia.org/wikipedia/commons/2/27/Flag_of_Paraguay.svg",
+    "Italy": "http://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Italy.svg",
+    "Slovakia": "http://upload.wikimedia.org/wikipedia/commons/e/e6/Flag_of_Slovakia.svg",
+    "Brazil": "http://upload.wikimedia.org/wikipedia/commons/0/05/Flag_of_Brazil.svg",
+    u"Côte d'Ivoire": "http://upload.wikimedia.org/wikipedia/commons/8/86/Flag_of_Cote_d%27Ivoire.svg",
+    "Portugal": "http://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg",
+    "Korea DPR": "http://upload.wikimedia.org/wikipedia/commons/5/51/Flag_of_North_Korea.svg",
+    "Spain": "http://upload.wikimedia.org/wikipedia/commons/9/9a/Flag_of_Spain.svg",
+    "Switzerland": "http://upload.wikimedia.org/wikipedia/commons/f/f3/Flag_of_Switzerland.svg",
+    "Honduras": "http://upload.wikimedia.org/wikipedia/commons/8/82/Flag_of_Honduras.svg",
+    "Chile": "http://upload.wikimedia.org/wikipedia/commons/7/78/Flag_of_Chile.svg",
+    
+    }
+
+
 def getGroups():
     groups = {'A': set(("South Africa", "Mexico", "Uruguay", "France")),
               'B': set(("Korea Republic", "Argentina", "Nigeria", "Greece")),
@@ -55,6 +92,9 @@ def main(cmd,bingos=DEFAULT_BINGOS,rows=DEFAULT_ROWS,columns=DEFAULT_COLUMNS,*ar
         border-color: gray;
         margin: 0;
         text-align: center;
+    }
+    td img {
+        height: 10em;
     }
     tr {
         height: 25%;
@@ -140,7 +180,10 @@ def generateBoard(rows, columns):
         print "  <tr>"
         for column in range(columns):
             team = board[row*columns + column]
-            print "      <td>%s</td>" % team.encode("utf8")
+            print "      <td>"
+            print "<img src='%s' /><br />" % flags[team]
+            print team.encode("utf8")
+            print "</td>" 
             #print format % team,    
         print "  </tr>"
     print "</table>"        
