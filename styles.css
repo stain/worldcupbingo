@@ -32,7 +32,6 @@ td {
 
 td img.flag {
     height: 10em;
-    padding: 3px;
     border: 1px solid #CCC;
     background-color: #FFF;
     display: block;
@@ -43,7 +42,6 @@ td p.team-name {
     margin: 0.7em 0 0 0;
     font-size: 167%;
     font-weight: bold;
-    color: #990000;
 }
 
 tr {
