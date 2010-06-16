@@ -10,6 +10,10 @@
     padding: 20px;
     letter-spacing: .05em;
 }
+.price {
+    font-size: 25px;
+    float: right;
+}
 
 table {
     font-size:inherit;

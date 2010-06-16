@@ -9,6 +9,7 @@ from string import Template
 DEFAULT_BINGOS=1
 DEFAULT_ROWS=4
 DEFAULT_COLUMNS=3
+DEFAULT_PRICE="£2/board"
 DEBUG=False
 
 cellTemplate = Template(open("tablecell.html").read())
@@ -71,19 +72,14 @@ def getGroups():
             longestTeamName = max(longestTeamName, len(team))
     return groups,teams,longestTeamName
 
-def main(cmd,bingos=DEFAULT_BINGOS,rows=DEFAULT_ROWS,columns=DEFAULT_COLUMNS,*args):
-    if "-h" in args or "--help" in args:
-        help(cmd)
-        return
-    if "-d" in args:
-        global DEBUG
-        DEBUG=True    
+def main(cmd,bingos=DEFAULT_BINGOS,rows=DEFAULT_ROWS,columns=DEFAULT_COLUMNS,price=DEFAULT_PRICE,*args):
     boards = ""
     for n in range(int(bingos)):
         board = generateBoard(int(rows), int(columns))
         boardHtml = boardAsTable(board, int(rows), int(columns))
         boardId = getBoardHash(board)
-        boards += boardTemplate.substitute(board=boardHtml, boardId=boardId)
+        boards += boardTemplate.substitute(board=boardHtml,
+        boardId=boardId, price=price)
     print mainTemplate.substitute(boards=boards)    
     
 def generateBoard(rows, columns):
@@ -144,5 +140,11 @@ Generate a FIFA 2010 World Cup bingo.
 
 
 if __name__ == "__main__":
-    main(*sys.argv)
+    args = sys.argv
+    if "-d" in args:
+        DEBUG=True    
+    if "-h" in args or "--help" in args:
+        help(args[0])
+    else:
+        main(*sys.argv)
 
