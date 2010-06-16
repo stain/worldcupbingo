@@ -2,7 +2,7 @@
 <h1>FIFA World Cup 2010 Bingo</h1>
           <p>Cross out teams below as they are eliminated from the World Cup.
           The first player to complete his bingo board wins.</p>
-          <ul>
+          <ul class='rules'>
           <li>The ordering is based on the time the matches are
           played.</li>
           <li>In the event of a tie, the board with the team which 
@@ -13,9 +13,12 @@
 ${board}
           
 <div class='hash'>Board id ${boardId}</div>
+
+<span style="clear:both">&nbsp;</span>
+
 <p>This board has been computationally drawn randomly
          according to these rules:</p>
-         <ol class='rules'>
+         <ol class='gen-rules'>
             <li>The first team is chosen randomly.</li>
             <li>The whole group of the chosen team is removed from the
                 pool of teams, choosing randomly from the remaining
