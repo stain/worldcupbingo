@@ -118,17 +118,18 @@ def main(cmd,bingos=DEFAULT_BINGOS,rows=DEFAULT_ROWS,columns=DEFAULT_COLUMNS,*ar
     }
     td {  
         width: 33%;
-        border: black 1px dotted;
-        border-color: gray;
         margin: 0;
         text-align: center;
+        border-color: gray;
+        border: 1px dotted;
     }
-    td img {
+    td img, td object {
         height: 10em;
+        border: gray 1px solid;
     }
     tr {
     }
-    .bingo` {
+    .bingo {
         page-break-after: always;
     }
     .rules {
@@ -182,6 +183,7 @@ def generateBoard(rows, columns):
         for column in range(columns):
             team = board[row*columns + column]
             print "      <td>"
+            #print "<object data='%s' type='image/svg+xml' height='100'></object>" % flags[team]
             print "<img src='%s' /><br />" % flags[team]
             print team.encode("utf8")
             print "</td>" 
