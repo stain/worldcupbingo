@@ -4,11 +4,16 @@
 import random
 import sys
 import hashlib
+from string import Template
 
 DEFAULT_BINGOS=1
 DEFAULT_ROWS=4
 DEFAULT_COLUMNS=3
 DEBUG=False
+
+cellTemplate = Template(open("tablecell.html").read())
+boardTemplate = Template(open("div.html").read())
+mainTemplate = Template(open("main.html").read())
 
 flags = {
     "South Africa": "http://upload.wikimedia.org/wikipedia/commons/a/af/Flag_of_South_Africa.svg",
@@ -46,36 +51,6 @@ flags = {
     
 }
 
-intro = """<h1>FIFA World Cup 2010 Bingo</h1>
-          <p>Cross out teams below as they are eliminated from the World Cup.
-          The first player to complete his bingo board wins.</p>
-          <ul>
-          <li>The ordering is based on the time the matches are
-          played.</li>
-          <li>In the event of a tie, the board with the team which 
-          eliminating match was played first will win.</li>
-          <li>The third-place game is not included. </li>
-          </ul>
-          """
-rules = """<p>This board has been computationally drawn randomly
-         according to these rules:</p>
-         <ol class='rules'>
-            <li>The first team is chosen randomly.</li>
-            <li>The whole group of the chosen team is removed from the
-                pool of teams, choosing randomly from the remaining
-                teams.</li>
-            <li>This continues until there are no more possible teams.</li>
-            <li>When there are no more possible teams, all teams not
-                already on the bingo board are put back to the pool, 
-                and the draws continues from the top, until the 
-                board is complete.</li>  
-            <li>This draw is performed independently for each bingo
-            board. Although theoretically two bingo boards could contain
-            the same teams, for all practical purposes bingo boards will
-            be unique, and will contain teams evenly drawn from across
-            the groups.</li>   
-         </ol>
-        """
 
 def getGroups():
     groups = {'A': set(("South Africa", "Mexico", "Uruguay", "France")),
@@ -103,56 +78,13 @@ def main(cmd,bingos=DEFAULT_BINGOS,rows=DEFAULT_ROWS,columns=DEFAULT_COLUMNS,*ar
     if "-d" in args:
         global DEBUG
         DEBUG=True    
-    print """<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <style type="text/css">
-    <!--
-    table {
-        width: 100%;
-        height: 28em;
-        border-collapse: collapse;
-        border-style: solid;
-        border-color: gray;
-        border-width: 1px;
-    }
-    td {  
-        width: 33%;
-        margin: 0;
-        text-align: center;
-        border-color: gray;
-        border: 1px dotted;
-    }
-    td img, td object {
-        height: 10em;
-        border: gray 1px solid;
-    }
-    tr {
-    }
-    .bingo {
-        page-break-after: always;
-    }
-    .rules {
-        font-size: 90%;
-    }
-    .hash {
-        font-size: 90%;
-        text-align: right;
-    }
-
-
-    -->
-    </style>
-</head>
-    <body>
-"""
+    boards = ""
     for n in range(int(bingos)):
-        print "<div class='bingo'>"
-        print intro
-        generateBoard(int(rows), int(columns))
-        print rules
-        print "</div>"
-    print "</body></html>"
+        board = generateBoard(int(rows), int(columns))
+        boardHtml = boardAsTable(board, int(rows), int(columns))
+        boardId = getBoardHash(board)
+        boards += boardTemplate.substitute(board=boardHtml, boardId=boardId)
+    print mainTemplate.substitute(boards=boards)    
     
 def generateBoard(rows, columns):
     groups,teams,longestTeamName = getGroups()
@@ -174,29 +106,32 @@ def generateBoard(rows, columns):
             # Bring in again all groups
             candidates = set(teams) - set(board)
 
-    format = "%%-%ss" % longestTeamName
-    if DEBUG:
-        board.sort()
-    print "<table>"    
-    for row in range(rows):
-        print "  <tr>"
-        for column in range(columns):
-            team = board[row*columns + column]
-            print "      <td>"
-            #print "<object data='%s' type='image/svg+xml' height='100'></object>" % flags[team]
-            print "<img src='%s' /><br />" % flags[team]
-            print team.encode("utf8")
-            print "</td>" 
-            #print format % team,    
-        print "  </tr>"
-    print "</table>"        
+    return board
 
+def getBoardHash(board):    
     boardHash = hashlib.sha1()
     board.sort()
     for t in board:
         boardHash.update(t.encode("utf8"))
-    print "<div class='hash'>Board id %s</div>" % boardHash.hexdigest()
+    return boardHash.hexdigest()    
 
+
+def boardAsTable(board, rows, columns):
+    html = "<table>\n"    
+    for row in range(rows):
+        html += "  <tr>\n"
+        for column in range(columns):
+            team = board[row*columns + column]
+            html += "      <td>\n"
+            html += cellTemplate.substitute(flag=flags[team], team=team.encode('utf8'))
+            #print "<object data='%s' type='image/svg+xml' height='100'></object>" % flags[team]
+            #print "<img src='%s' /><br />" % flags[team]
+            #print team.encode("utf8")
+            html += "</td>" 
+            #print format % team,    
+        html += "  </tr>"
+    html += "</table>"        
+    return html
 
 def help(cmd):
     print """%s [bingos] [columns] [rows]
