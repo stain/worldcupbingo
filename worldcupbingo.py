@@ -44,8 +44,38 @@ flags = {
     "Honduras": "http://upload.wikimedia.org/wikipedia/commons/8/82/Flag_of_Honduras.svg",
     "Chile": "http://upload.wikimedia.org/wikipedia/commons/7/78/Flag_of_Chile.svg",
     
-    }
+}
 
+intro = """<h1>FIFA World Cup 2010 Bingo</h1>
+          <p>Cross out teams below as they are eliminated from the World Cup.
+          The first player to complete his bingo board wins.</p>
+          <ul>
+          <li>The ordering is based on the time the matches are
+          played.</li>
+          <li>In the event of a tie, the board with the team which 
+          eliminating match was played first will win.</li>
+          <li>The third-place game is not included. </li>
+          </ul>
+          """
+rules = """<p>This board has been computationally drawn randomly
+         according to these rules:</p>
+         <ol class='rules'>
+            <li>The first team is chosen randomly.</li>
+            <li>The whole group of the chosen team is removed from the
+                pool of teams, choosing randomly from the remaining
+                teams.</li>
+            <li>This continues until there are no more possible teams.</li>
+            <li>When there are no more possible teams, all teams not
+                already on the bingo board are put back to the pool, 
+                and the draws continues from the top, until the 
+                board is complete.</li>  
+            <li>This draw is performed independently for each bingo
+            board. Although theoretically two bingo boards could contain
+            the same teams, for all practical purposes bingo boards will
+            be unique, and will contain teams evenly drawn from across
+            the groups.</li>   
+         </ol>
+        """
 
 def getGroups():
     groups = {'A': set(("South Africa", "Mexico", "Uruguay", "France")),
@@ -97,10 +127,9 @@ def main(cmd,bingos=DEFAULT_BINGOS,rows=DEFAULT_ROWS,columns=DEFAULT_COLUMNS,*ar
         height: 10em;
     }
     tr {
-        height: 25%;
     }
-    h1 {
-        page-break-before: always;
+    .bingo` {
+        page-break-after: always;
     }
     .rules {
         font-size: 90%;
@@ -117,38 +146,10 @@ def main(cmd,bingos=DEFAULT_BINGOS,rows=DEFAULT_ROWS,columns=DEFAULT_COLUMNS,*ar
     <body>
 """
     for n in range(int(bingos)):
-        print """<div class='bingo'>
-          <h1>FIFA World Cup 2010 Bingo</h1>
-          <p>Cross out teams below as they are eliminated from the World Cup.
-          The first player to complete his bingo board wins.</p>
-          <ul>
-          <li>The ordering is based on the time the matches are
-          played.</li>
-          <li>In the event of a tie, the board with the team which 
-          eliminating match was played first will win.</li>
-          <li>The third-place game is not included. </li>
-          </ul>
-
-          <p>This board has been computationally drawn randomly
-         according to these rules:</p>
-         <ol class='rules'>
-            <li>The first team is chosen randomly.</li>
-            <li>The whole group of the chosen team is removed from the
-                pool of teams, choosing randomly from the remaining
-                teams.</li>
-            <li>This continues until there are no more possible teams.</li>
-            <li>When there are no more possible teams, all teams not
-                already on the bingo board are put back to the pool, 
-                and the draws continues from the top, until the 
-                board is complete.</li>  
-            <li>This draw is performed independently for each bingo
-            board. Although theoretically two bingo boards could contain
-            the same teams, for all practical purposes bingo boards will
-            be unique, and will contain teams evenly drawn from across
-            the groups.</li>   
-         </ol>
-        """
+        print "<div class='bingo'>"
+        print intro
         generateBoard(int(rows), int(columns))
+        print rules
         print "</div>"
     print "</body></html>"
     
