@@ -7,7 +7,7 @@
     color: #333333;
     line-height: 1.5;
     margin: 0;
-    padding: 20px;
+    /*padding: 20px;*/
     letter-spacing: .05em;
 }
 .price {
@@ -21,7 +21,7 @@ table {
     width: 100%;
     border-collapse: collapse;
     border: 1px solid #BBB;
-    margin-top: 2em;
+    /*margin-top: 2em;*/
 }
 
 td {  
@@ -35,7 +35,7 @@ td {
 }
 
 td img.flag {
-    height: 10em;
+    height: 6em;
     border: 1px solid #CCC;
     background-color: #FFF;
     display: block;
@@ -44,7 +44,7 @@ td img.flag {
 
 td p.team-name {
     margin: 0.7em 0 0 0;
-    font-size: 167%;
+    font-size: 140%;
     font-weight: bold;
 }
 
@@ -52,6 +52,8 @@ tr {
 }
 
 h1 {
+    padding-top: 0;
+    margin-top: 0;
     font-weight: bold;
     color: #444;
     font-size: 197%;
@@ -62,13 +64,13 @@ h1 {
 }
 
 .rules {
-    font-size: 108%;
+    font-size: 92%;
     margin: 1em 0 1.5em 0;
     border: 1px solid #DDD; 
     background: #FFFFCC; 
     padding: 10px; 
-    line-height: 1.7;
-    width: 46em;
+    line-height: 1.4;
+    /*width: 46em;*/
     border-radius: 10px;
      -moz-border-radius: 10px;
      -webkit-border-radius: 10px;
@@ -81,9 +83,10 @@ h1 {
 
 .gen-rules {
     margin: 0;
+    font-size: 90%;
 }
 .hash {
-    margin: 1.5em 0;
+    margin: 0.5em 0;
     border: 1px solid #DDE;
     background-color: #F5F5F5;
     float: right;
