@@ -1,9 +1,5 @@
-﻿body {
+body {
     font:13px/1.231 arial,helvetica,clean,sans-serif;
-    /* for IE6/7 */ 
-    *font-size:small; 
-    /* for IE Quirks Mode */
-    *font:x-small; 
     color: #333333;
     line-height: 1.5;
     margin: 0;
