@@ -69,7 +69,7 @@ def getGroups():
     groups = {'A': set(("Russia", "Czech Republic", "Poland", "Greece")),
               'B': set(("Germany", "Portugal", "Denmark", "Netherlands")),
               'C': set(("Croatia", "Spain", "Italy" "Republic of Ireland")),
-              'C': set(("Ukraine", "England", "France","Sweden")),
+              'D': set(("Ukraine", "England", "France","Sweden")),
 
              }
     allTeams = set()         
