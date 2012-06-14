@@ -7,7 +7,7 @@ import hashlib
 from string import Template
 
 DEFAULT_BINGOS=1
-DEFAULT_ROWS=4
+DEFAULT_ROWS=3
 DEFAULT_COLUMNS=3
 DEFAULT_PRICE="£2/board"
 DEBUG=False
@@ -17,51 +17,60 @@ boardTemplate = Template(open("div.html").read())
 mainTemplate = Template(open("main.html").read())
 
 flags = {
+
+     "Russia": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Russia.svg/2000px-Flag.svg.png",
+     "Czech Republic": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_the_Czech_Republic.svg/2000px-Flag.svg.png",
+     "Poland": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Poland.svg/2000px-Flag.svg.png",
+    "Greece":"http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Greece.svg/2000px-Flag.svg.png",
+
+    "Germany": "http://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/2000px-Flag.svg.png",
+    "Portugal": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/2000px-Flag.svg.png",
+    "Denmark": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/2000px-Flag_of_Denmark.svg.png",
+    "Netherlands": "http://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/2000px-Flag.svg.png",
+
+    "Croatia": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Croatia.svg/2000px-Flag.svg.png",
+    "Spain": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/2000px-Flag.svg.png",
+    "Italy": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/2000px-Flag.svg.png",
+    "Republic of Ireland": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Ireland.svg/2000px-Flag.svg.png",
+    "Ukraine": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Ukraine.svg/2000px-Flag.svg.png",
+    "England":"http://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/2000px-Flag.svg.png",
+    "France":"http://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/2000px-Flag.svg.png",
+    "Sweden": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Sweden.svg/2000px-Flag.svg.png",
+
+    ## Remaining are leftovers from world cup 2010
     "South Africa": "http://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_South_Africa.svg/2000px-Flag.svg.png",
     "Mexico": "http://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/2000px-Flag.svg.png",
     "Uruguay": "http://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/2000px-Flag.svg.png",
-    "France":"http://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/2000px-Flag.svg.png",
     "Korea Republic": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/2000px-Flag.svg.png",
     "Argentina": "http://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/2000px-Flag.svg.png",
     "Nigeria": "http://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/2000px-Flag.svg.png",
-    "Greece":"http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Greece.svg/2000px-Flag.svg.png",
     "Slovenia":"http://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Flag_of_Slovenia.svg/2000px-Flag.svg.png",
     "United States": "http://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/2000px-Flag.svg.png",
-    "England":"http://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/2000px-Flag.svg.png",
     "Algeria": "http://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_Algeria.svg/2000px-Flag.svg.png",
-    "Germany": "http://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/2000px-Flag.svg.png",
     "Ghana":"http://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Ghana.svg/2000px-Flag.svg.png",
     "Serbia":"http://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/2000px-Flag.svg.png",
     "Australia": "http://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Flag_of_Australia.svg/2000px-Flag.svg.png",
-    "Netherlands": "http://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/2000px-Flag.svg.png",
     "Japan": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/2000px-Flag.svg.png",
     "Cameroon": "http://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_Cameroon.svg/2000px-Flag.svg.png",
     "New Zealand": "http://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Flag_of_New_Zealand.svg/2000px-Flag.svg.png",
     "Paraguay": "http://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Flag_of_Paraguay.svg/2000px-Flag.svg.png",
-    "Italy": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/2000px-Flag.svg.png",
     "Slovakia": "http://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Flag_of_Slovakia.svg/2000px-Flag.svg.png",
     "Brazil": "http://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/2000px-Flag.svg.png",
     u"Côte d'Ivoire": "http://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Flag_of_Cote_d%27Ivoire.svg/2000px-Flag.svg.png",
-    "Portugal": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/2000px-Flag.svg.png",
     "Korea DPR": "http://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Flag_of_North_Korea.svg/2000px-Flag.svg.png",
-    "Spain": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/2000px-Flag.svg.png",
     "Switzerland": "http://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/2000px-Flag.svg.png",
     "Honduras": "http://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Flag_of_Honduras.svg/2000px-Flag.svg.png",
     "Chile": "http://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Flag_of_Chile.svg/2000px-Flag.svg.png",
-    "Denmark": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/2000px-Flag_of_Denmark.svg.png",
     
 }
 
 
 def getGroups():
-    groups = {'A': set(("South Africa", "Mexico", "Uruguay", "France")),
-              'B': set(("Korea Republic", "Argentina", "Nigeria", "Greece")),
-              'C': set(("Slovenia", "United States", "England", "Algeria")),
-              'D': set(("Germany", "Ghana", "Serbia", "Australia")),
-              'E': set(("Netherlands", "Japan", "Cameroon", "Denmark")),
-              'F': set(("New Zealand", "Paraguay", "Italy", "Slovakia")),
-              'G': set(("Brazil", u"Côte d'Ivoire", "Portugal", "Korea DPR")),
-              'H': set(("Spain", "Switzerland", "Honduras", "Chile")),
+    groups = {'A': set(("Russia", "Czech Republic", "Poland", "Greece")),
+              'B': set(("Germany", "Portugal", "Denmark", "Netherlands")),
+              'C': set(("Croatia", "Spain", "Italy" "Republic of Ireland")),
+              'C': set(("Ukraine", "England", "France","Sweden")),
+
              }
     allTeams = set()         
     longestTeamName = 0
@@ -131,7 +140,7 @@ def boardAsTable(board, rows, columns):
 
 def help(cmd):
     print """%s [bingos] [columns] [rows]
-Generate a FIFA 2010 World Cup bingo.
+Generate a UEFA 2012 EURO Cup bingo.
 
   bingos  - number of bingo boards to generate. Default: %s
   rows    - number of rows on bingo board. Default: %s
