@@ -68,7 +68,7 @@ flags = {
 def getGroups():
     groups = {'A': set(("Russia", "Czech Republic", "Poland", "Greece")),
               'B': set(("Germany", "Portugal", "Denmark", "Netherlands")),
-              'C': set(("Croatia", "Spain", "Italy" "Republic of Ireland")),
+              'C': set(("Croatia", "Spain", "Italy", "Republic of Ireland")),
               'D': set(("Ukraine", "England", "France","Sweden")),
 
              }
