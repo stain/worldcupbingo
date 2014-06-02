@@ -89,7 +89,7 @@ so that one can track progress on each other's cards.
    coss.
 
 5. If the prize is shared according to these rules, it is split equally between 
-   the players, ignoring their number of boards or in which way their
+   the winning players, ignoring their number of boards or in which way their
    particular team was eliminated.
 
 
