@@ -4,6 +4,9 @@ Generate bingo cards for the [FIFA World Cup](http://www.fifa.com/worldcup/index
 
 Cross out teams as they are *eliminated* from the World Cup. The first player to complete their bingo card wins.
 
+![Creative Commons Attribution](http://i.creativecommons.org/l/by/4.0/88x31.png)
+
+
 ## Card generation
 
 The card (see [example bingo card](http://stain.github.com/worldcupbingo/bingo.html)) is drawn randomly according
@@ -30,42 +33,67 @@ being played.
 
 ## Playing
 
-This game is most fun playing in a shared space, like an office or lunch room,
-so that one can track progress on each other's cards: 
+This game is most fun playing in a shared space, like a lunch room,
+so that one can track progress on each other's cards.
 
 1. Generate the required number of bingo boards. Save the HTML file somewhere for later. You can
    email it to independent witnesses who should also monitor and verify that
    you ran the generation without modifications to script or HTML.
 2. Print out the bingo boards (the stylesheet will split it over several
-   pages). Don't worry, you can print more later! 
+   pages).  Don't worry if you run out, you can print more later! 
 3. Sell tickets to the bingo draw to your colleages, and let the purchaser pick
-   a card without looking at its content. (So she can't prefer the "best" card!)
+   a card without looking at its content. (So she can't prefer the "best" card!).
+   * You may allow fresh players to "buy in" even if the game has started.
+   * If you allow multiple cards for the same player, then you should only
+   allow this in a single purchase (so that the player cannot inspect which 
+   teams he got on his first board before opting to buy a second board)
 4. Write down separately the player's name against the board ID. It is
-   usually unique enough so you only need to write down the first 4-5 digits.
+   usually unique enough so you only need to match the first 4-5 digits.
+   The first page contains a list of the generated board IDs which should be
+   kept by the organizer for this purpose.
 5. Write the name of the player on the board, and put it on a bulletin board next
-   to the other player's cards.
+   to the other player's cards. (In a multi-site setup, you can instead choose to 
+   publish the generated HTML on the Intranet)
 6. As the World Cup progresses, players will tick off their losing teams
-   (cheering for everyone on their board to lose early).
-7. The winner(s) are the first player(s) to complete their board. Note that this
-   is ordered by the scheduled kickoff time of World Cup matches - not by when
-   the board is ticket. Thus, if one night Brazil first wins over Germany, and
-   2 hours later, Italy wins over France, then the player which only unticked
-   box was "Brazil" will win, while the player missing just "Italy" will not
-   win.  On the other hand, if two concurrent matches have kick off at 18:00,
-   then bingo winners resulting from both matches are in a tie.
+   (cheering for everyone on their board to drop out of the World Cup!).
+7. The winner(s) of the bingo are the first player(s) to complete their board
+   according to their team's knockout. It is not the time of the 
+   physical completion of the board that matters (you do not need to arrive superearly
+   to work to complete the board!), but what team was eliminated first.
+   (See below)	
    
 ## Deciding the winner
 
 
-1. The ordering is based on the scheduled kickoff date and time of the
-   eliminating matches (at the final groups stage, the final match of the
-   group)
-2. In the event of several players completing their bingo card after the same
-   elimination, they will share the prize.
-3. The third-place game is not included.
+1. The ordering of eliminiations are based on the _scheduled kickoff time_ of the
+   eliminating matches (not when the bingo board is physically completed)
+2. The third-place game is not included (those teams were kicked out in the semi-final)
+3. In the event of several players completing their bingo card after the same
+   team is eliminated, they will equally share the prize.
+4. If two concurrent matches have the same scheduled kick off (e.g. in quarter
+   finals), then any concurrent bingo winners resulting from either matches are
+   considered to be in a tie, which is resolved depending on which way the
+   matches finish: 
+
+   a) If both matches complete at the end of second half, then both loosing
+   teams are considered knocked out at the same time (ignoring the wall clock)
+   and the bingo prize is shared.
+
+   b) If any of the matches extend into extra-time, then the loser of the match
+   which was extended the least (or not at all) are considered to be knocked
+   out earlier. 
+   
+   c) If both matches extend into penalty kickoffs, then both matches are
+   considered to be finished at the same time and the prize is shared; ignoring
+   the number of penalty kicks needed for the knockout and any eventual toin
+   coss.
+
+5. If the prize is shared according to these rules, it is split equally between 
+   the players, ignoring their number of boards or in which way their
+   particular team was eliminated.
 
 
-## Usage
+## Script usage
 
     $ python worldcupbingo.py > bingo.html
 
@@ -113,6 +141,8 @@ teams on the board (as UTF-8), separated with newlines (`\n`).
   [Stian Soiland-Reyes](http://orcid.org/0000-0001-9842-9718), 
   [Matthew Gamble](http://orcid.org/0000-0003-4913-1485)
 
-Licensed under the [MIT license](LICENSE).
+Licensed under the [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/").
 
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">worldcupbingo.py</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://orcid.org/0000-0001-9842-9718" property="cc:attributionName" rel="cc:attributionURL">Stian Soiland-Reyes et al.</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/stain/worldcupbingo" rel="dct:source">https://github.com/stain/worldcupbingo</a>.
 

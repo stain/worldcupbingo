@@ -1,15 +1,17 @@
 <div class='bingo'>
 <h1>FIFA World Cup 2014 Knockout Bingo</h1>
 <div class='price'>${price}</div>
-          <p>Cross out teams below as they are eliminated from the World Cup.
-          The first player to complete their bingo card wins.</p>
+	  <p>Cross out teams below as they are <em>eliminated</em> from the World Cup.
+          The first player to complete their bingo card (according to elimination
+	  time) wins.</p>
           <ul class='rules'>
-	  <li>The ordering is based on the kickoff date and time the
-	  eliminating matches are played (at the final groups stage, the final
-	  match of the group)</li>
-          <li>In the event of several players completing their bingo
-            card after the same elimination, they will share the prize.</li>
+	  <li>The elimination ordering is based on the <em>scheduled kickoff time</em>.</li>
           <li>The third-place game is not included. </li>
+	  <li>If several players can consider their bingo card completed after
+	  the same elimination, they will share the prize.</li>
+	  <li>If several eliminations occur with the same kickoff time, the
+	      elimination time depends on which stage the matches finish.
+	      (see <a href="https://github.com/stain/worldcupbingo#deciding-the-winner">https://github.com/stain/worldcupbingo)</a></li>
           </ul>
 
 ${board}
@@ -19,7 +21,9 @@ ${board}
 <span style="clear:both">&nbsp;</span>
 
 <p>This card has been computationally drawn randomly
-         according to these rules:</p>
+according to these rules: 
+(source: <a href="https://github.com/stain/worldcupbingo">https://github.com/stain/worldcupbingo)</a></p>
+
          <ol class='gen-rules'>
             <li>The first team is chosen randomly.</li>
             <li>The group of the chosen team is removed from the

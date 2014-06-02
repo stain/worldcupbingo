@@ -14,6 +14,7 @@ DEBUG=False
 
 cellTemplate = Template(open("tablecell.html").read())
 boardTemplate = Template(open("div.html").read())
+boardidsTemplate = Template(open("boardids.html").read())
 mainTemplate = Template(open("main.html").read())
 
 flags = {
@@ -84,13 +85,21 @@ def getGroups():
 
 def main(cmd,bingos=DEFAULT_BINGOS,rows=DEFAULT_ROWS,columns=DEFAULT_COLUMNS,price=DEFAULT_PRICE,*args):
     boards = ""
+    boardids = []
     for n in range(int(bingos)):
         board = generateBoard(int(rows), int(columns))
         boardHtml = boardAsTable(board, int(rows), int(columns))
         boardId = getBoardHash(board)
+	boardids.append(boardId)
         boards += boardTemplate.substitute(board=boardHtml,
-        boardId=boardId, price=price)
-    print mainTemplate.substitute(boards=boards)
+		boardId=boardId, price=price)
+    boardids.sort()	
+    if (len(boardids) > 1):
+        ids = boardidsTemplate.substitute(boardids=
+		"\n</p><p>\n".join(boardids))
+    else:
+        ids = "" # No point for a single board!
+    print mainTemplate.substitute(boards=boards, ids=ids)
 
 def generateBoard(rows, columns):
     groups,teams,longestTeamName = getGroups()

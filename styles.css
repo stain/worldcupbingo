@@ -55,7 +55,7 @@ h1 {
     font-size: 197%;
 }
 
-.bingo {
+.bingo,.boardids {
     page-break-after: always;
 }
 
