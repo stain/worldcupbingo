@@ -141,7 +141,7 @@ def boardAsTable(board, rows, columns):
 
 def help(cmd):
     print """%s [bingos] [columns] [rows]
-Generate a UEFA 2012 EURO Cup bingo.
+Generate a FIFA 2014 World Cup bingo.
 
   bingos  - number of bingo boards to generate. Default: %s
   rows    - number of rows on bingo board. Default: %s
