@@ -6,7 +6,7 @@ Cross out teams as they are *eliminated* from the World Cup. The first player to
 
 ## Card generation
 
-The card (see [example bingo card](example.html)) is drawn randomly according
+The card (see [example bingo card](http://stain.github.com/worldcupbingo/bingo.html)) is drawn randomly according
 to these rules:
 
 1.   The first team is chosen randomly.
@@ -69,8 +69,8 @@ To generate many cards in one go (printed on separate pages), add the number of 
     $ python worldcupbingo.py 30 > bingo.html
 
 If you are not able to run the generation script, you can always use our 
-pre-made [100 cards](hundreds.html) - but only print it once - do not sell
-duplicates!
+pre-made [100 cards](http://stain.github.io/worldcupbingo/hundreds.html) - but
+only print it once - do not sell duplicates!
 
 ## Customization
 
