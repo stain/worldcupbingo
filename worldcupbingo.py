@@ -7,7 +7,7 @@ import hashlib
 from string import Template
 
 DEFAULT_BINGOS=1
-DEFAULT_ROWS=3
+DEFAULT_ROWS=4
 DEFAULT_COLUMNS=3
 DEFAULT_PRICE="£2/board"
 DEBUG=False
