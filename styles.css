@@ -1,5 +1,5 @@
 body {
-    font:13px/1.231 arial,helvetica,clean,sans-serif;
+    font:13px/1.231 'Open Sans', arial,helvetica,clean,sans-serif;
     color: #333333;
     line-height: 1.5;
     margin: 0;
@@ -20,7 +20,7 @@ table {
     /*margin-top: 2em;*/
 }
 
-td {  
+td {
     width: 33%;
     border: 1px solid #DDD;
     margin: 0;
@@ -62,9 +62,9 @@ h1 {
 .rules {
     font-size: 92%;
     margin: 1em 0 1.5em 0;
-    border: 1px solid #DDD; 
-    background: #FFFFCC; 
-    padding: 10px; 
+    border: 1px solid #DDD;
+    background: #FFFFCC;
+    padding: 10px;
     line-height: 1.4;
     /*width: 46em;*/
     border-radius: 10px;
