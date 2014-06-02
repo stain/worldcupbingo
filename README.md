@@ -157,11 +157,12 @@ Eurocup use 3x3.
 # Authenticity
 
 To verify that players have not printed their own card with more favourable
-teams, you are advised to keep a copy of the generated HTML and make not of
-the mapping between the *Board ID* and the player.
+teams, you are advised to keep a copy of the generated HTML and make note of
+the mapping between the *Board ID* and the player. If you generate multiple
+cards, the first page will contain a list of the board IDs for this purpose.
 
 The Board ID is generated as a SHA-1 hash of the alphabetically sorted list of
-teams on the board (as UTF-8), separated with newlines (`\n`). 
+teams on the board (as UTF-8), with trailing newlines (`\n`). 
 
 # Authors and license
 
