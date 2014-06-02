@@ -83,7 +83,12 @@ def getGroups():
             longestTeamName = max(longestTeamName, len(team))
     return groups,teams,longestTeamName
 
-def main(cmd,bingos=DEFAULT_BINGOS,rows=DEFAULT_ROWS,columns=DEFAULT_COLUMNS,price=DEFAULT_PRICE,*args):
+def main(cmd,bingos=DEFAULT_BINGOS,rows=DEFAULT_ROWS,columns=DEFAULT_COLUMNS,*args):
+    if not args:
+        price = DEFAULT_PRICE
+    else:
+        price = " ".join(args)
+
     boards = ""
     boardids = []
     for n in range(int(bingos)):
@@ -149,13 +154,14 @@ def boardAsTable(board, rows, columns):
     return html
 
 def help(cmd):
-    print """%s [bingos] [columns] [rows]
+    print """%s [bingos] [columns] [rows] [price]
 Generate a FIFA 2014 World Cup bingo.
 
   bingos  - number of bingo boards to generate. Default: %s
   rows    - number of rows on bingo board. Default: %s
   columns - number of columns on bingo board: Default %s
-""" % (cmd, DEFAULT_BINGOS, DEFAULT_ROWS, DEFAULT_COLUMNS)
+  prise   - price to print on card: Default %s
+""" % (cmd, DEFAULT_BINGOS, DEFAULT_ROWS, DEFAULT_COLUMNS, DEFAULT_PRICE)
 
 
 if __name__ == "__main__":
