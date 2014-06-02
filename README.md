@@ -47,11 +47,22 @@ so that one can track progress on each other's cards:
 6. As the World Cup progresses, players will tick off their losing teams
    (cheering for everyone on their board to lose early).
 7. The winner(s) are the first player(s) to complete their board. Note that this
-   is ordered by the time each World Cup match finishes - not by when 
-   the board is ticket. Thus, if one night Brazil wins over Germany, and 5
-   minutes later, Italy wins over France, then the player which only unticked box was
-   "Brazil" will win, while the player missing just "Italy" will not win.
+   is ordered by the scheduled kickoff time of World Cup matches - not by when
+   the board is ticket. Thus, if one night Brazil first wins over Germany, and
+   2 hours later, Italy wins over France, then the player which only unticked
+   box was "Brazil" will win, while the player missing just "Italy" will not
+   win.  On the other hand, if two concurrent matches have kick off at 18:00,
+   then bingo winners resulting from both matches are in a tie.
    
+## Deciding the winner
+
+
+1. The ordering is based on the scheduled kickoff date and time of the
+   eliminating matches (at the final groups stage, the final match of the
+   group)
+2. In the event of several players completing their bingo card after the same
+   elimination, they will share the prize.
+3. The third-place game is not included.
 
 
 ## Usage
