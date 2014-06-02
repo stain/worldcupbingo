@@ -118,7 +118,7 @@ def getBoardHash(board):
     boardHash = hashlib.sha1()
     board.sort()
     for t in board:
-        boardHash.update(t.encode("utf8"))
+        boardHash.update(t.encode("utf8")+"\n")
     return boardHash.hexdigest()
 
 
