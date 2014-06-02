@@ -64,7 +64,7 @@ Then open in a browser to print the card.
 
 
 You can print as many cards as you like, at any time, as each card is generated independently. 
-To generate many cards in one go (printed on separate pages), add the number of cards as a paramter:
+To generate many cards in one go (printed on separate pages), add the number of cards as a parameter:
 
     $ python worldcupbingo.py 30 > bingo.html
 
