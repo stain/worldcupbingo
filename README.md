@@ -20,16 +20,22 @@ This rota between the groups helps ensure that all cards contain a mixture of
 'good' and 'not so good' team, so that it is not easy to predict in advance who
 will win.
 
-The winner(s) will typically be in the quarter finals if about 30 cards are being played.
+
+There is a small chance that several boards would contain the same teams (but
+possibly printed in a different order). The size of the board has been
+optimized to 3x4 as a trade-off between the whole bingo game finishing too
+early and adding some excitement towards the end game.  From our experience,
+the winner(s) will typically be in the quarter finals if about 30-40 cards are
+being played.
 
 ## Playing
 
-This game is most fun playing in a shared space, like an office or lunch room, so that one can track
-progress on each other's cards: 
+This game is most fun playing in a shared space, like an office or lunch room,
+so that one can track progress on each other's cards: 
 
 1. Generate the required number of bingo boards. Save the HTML file somewhere for later. You can
-   email it to independent witnesses who also can verify that you run the generation
-   without modifications.
+   email it to independent witnesses who should also monitor and verify that
+   you ran the generation without modifications to script or HTML.
 2. Print out the bingo boards (the stylesheet will split it over several
    pages). Don't worry, you can print more later! 
 3. Sell tickets to the bingo draw to your colleages, and let the purchaser pick
@@ -61,6 +67,10 @@ You can print as many cards as you like, at any time, as each card is generated 
 To generate many cards in one go (printed on separate pages), add the number of cards as a paramter:
 
     $ python worldcupbingo.py 30 > bingo.html
+
+If you are not able to run the generation script, you can always use our 
+pre-made [100 cards](hundreds.html) - but only print it once - do not sell
+duplicates!
 
 ## Customization
 
