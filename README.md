@@ -92,20 +92,43 @@ so that one can track progress on each other's cards.
    the winning players, ignoring their number of boards or in which way their
    particular team was eliminated.
 
-
+ 
 ## Script usage
 
-    $ python worldcupbingo.py > bingo.html
+```
+$ python worldcupbingo.py -h
+worldcupbingo.py [bingos] [columns] [rows] [price]
+Generate a FIFA 2014 World Cup bingo.
 
-Then open in a browser to print the card.
+  bingos  - number of bingo boards to generate. Default: 1
+  rows    - number of rows on bingo board. Default: 4
+  columns - number of columns on bingo board: Default 3
+  prise   - price to print on card: Default £2/board
+```
 
-    $ gnome-open bingo.html
+The card is printed on stdout, so redirect to a filename of your choice:
 
+    $ python worldcupbingo.py >bingo.html
+
+Then open in a browser to print the card:
+
+    linux ~ $   gnome-open bingo.html  
+    osx ~ $     open bingo.html   
+    C:\WINDOWS> start bingo.html
 
 You can print as many cards as you like, at any time, as each card is generated independently. 
 To generate many cards in one go (printed on separate pages), add the number of cards as a parameter:
 
-    $ python worldcupbingo.py 30 > bingo.html
+    $ python worldcupbingo.py 30 >bingo.html
+
+You can also specify the board size, which might be useful if you are printing particularly few or many cards:
+
+
+    $ python worldcupbingo.py 1 3 3 "$5/board" >bingo.html
+
+To change the board price, specify it as the last parameter:
+
+    $ python worldcupbingo.py 1 4 4 100 EUR/board >bingo.html
 
 If you are not able to run the generation script, you can always use our 
 pre-made [100 cards](http://stain.github.io/worldcupbingo/hundreds.html) - but
@@ -113,7 +136,8 @@ only print it once - do not sell duplicates!
 
 ## Customization
 
-Modify these settings within [worldcupbingo.py](worldcupbingo.py) to change the
+If you don't want to specify these on the command line every time, you can
+modify these settings within [worldcupbingo.py](worldcupbingo.py) to change the
 number of teams on a board or the price per board.
 
 ```python
@@ -125,6 +149,10 @@ DEFAULT_PRICE="£2/board"
 To modify the generation for a different cup, edit `getGroups()` to reflect the 
 teams. You may need to add additional flags from Wikipedia to `flags = ...`
 above.  You should also modify [div.html](div.html) for the new name of the cup.
+
+Note that the number of rows and columns determines how likely boards are to
+overlap, for smaller number of groups you should shrink the board, e.g. for
+Eurocup use 3x3.
 
 # Authenticity
 
