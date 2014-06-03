@@ -40,28 +40,28 @@ so that one can track progress on each other's cards.
    email it to independent witnesses who should also monitor and verify that
    you ran the generation without modifications to script or HTML.
 2. Print out the bingo boards (the stylesheet will split it over several
-   pages).  Don't worry if you run out, you can print more later! 
+   pages).  Don't worry if you run out, you can print more later!
 3. Sell tickets to the bingo draw to your colleages, and let the purchaser pick
    a card without looking at its content. (So she can't prefer the "best" card!).
    * You may allow fresh players to "buy in" even if the game has started.
    * If you allow multiple cards for the same player, then you should only
-   allow this in a single purchase (so that the player cannot inspect which 
+   allow this in a single purchase (so that the player cannot inspect which
    teams he got on his first board before opting to buy a second board)
 4. Write down separately the player's name against the board ID. It is
    usually unique enough so you only need to match the first 4-5 digits.
    The first page contains a list of the generated board IDs which should be
    kept by the organizer for this purpose.
 5. Write the name of the player on the board, and put it on a bulletin board next
-   to the other player's cards. (In a multi-site setup, you can instead choose to 
+   to the other player's cards. (In a multi-site setup, you can instead choose to
    publish the generated HTML on the Intranet)
 6. As the World Cup progresses, players will tick off their losing teams
    (cheering for everyone on their board to drop out of the World Cup!).
 7. The winner(s) of the bingo are the first player(s) to complete their board
-   according to their team's knockout. It is not the time of the 
+   according to their team's knockout. It is not the time of the
    physical completion of the board that matters (you do not need to arrive superearly
    to work to complete the board!), but what team was eliminated first.
-   (See below)	
-   
+   (See below)
+
 ## Deciding the winner
 
 
@@ -73,26 +73,30 @@ so that one can track progress on each other's cards.
 4. If two concurrent matches have the same scheduled kick off (e.g. in quarter
    finals), then any concurrent bingo winners resulting from either matches are
    considered to be in a tie, which is resolved depending on which way the
-   matches finish: 
+   matches finish:
 
-   a) If both matches complete at the end of second half, then both loosing
+   a) If both matches complete at the end of regular time, then both losing
    teams are considered knocked out at the same time (ignoring the wall clock)
    and the bingo prize is shared.
 
    b) If any of the matches extend into extra-time, then the loser of the match
    which was extended the least (or not at all) are considered to be knocked
-   out earlier. 
-   
-   c) If both matches extend into penalty kickoffs, then both matches are
-   considered to be finished at the same time and the prize is shared; ignoring
-   the number of penalty kicks needed for the knockout and any eventual toin
-   coss.
+   out earlier.
 
-5. If the prize is shared according to these rules, it is split equally between 
+   c) If one match is decided in extra time but the other match goes into
+   a penalty shoot-out, then the loser of the match that was decided in
+   extra-time was eliminated first.
+
+   c) If both matches extend into a penalty shoot-out, then both matches are
+   considered to be finished at the same time and the prize is shared; ignoring
+   the number of penalty kicks needed for the knockout and any eventual coin
+   toss.
+
+5. If the prize is shared according to these rules, it is split equally between
    the winning players, ignoring their number of boards or in which way their
    particular team was eliminated.
 
- 
+
 ## Script usage
 
 ```
@@ -113,10 +117,10 @@ The card is printed on stdout, so redirect to a filename of your choice:
 Then open in a browser to print the card:
 
     linux ~ $   gnome-open bingo.html  
-    osx ~ $     open bingo.html   
+    osx ~ $     open bingo.html
     C:\WINDOWS> start bingo.html
 
-You can print as many cards as you like, at any time, as each card is generated independently. 
+You can print as many cards as you like, at any time, as each card is generated independently.
 To generate many cards in one go (printed on separate pages), add the number of cards as a parameter:
 
     $ python worldcupbingo.py 30 >bingo.html
@@ -130,7 +134,7 @@ To change the board price, specify it as the last parameter:
 
     $ python worldcupbingo.py 1 4 4 100 EUR/board >bingo.html
 
-If you are not able to run the generation script, you can always use our 
+If you are not able to run the generation script, you can always use our
 pre-made [100 cards](http://stain.github.io/worldcupbingo/hundreds.html) - but
 only print it once - do not sell duplicates!
 
@@ -146,7 +150,7 @@ DEFAULT_COLUMNS=3
 DEFAULT_PRICE="£2/board"
 ```
 
-To modify the generation for a different cup, edit `getGroups()` to reflect the 
+To modify the generation for a different cup, edit `getGroups()` to reflect the
 teams. You may need to add additional flags from Wikipedia to `flags = ...`
 above.  You should also modify [div.html](div.html) for the new name of the cup.
 
@@ -162,15 +166,12 @@ the mapping between the *Board ID* and the player. If you generate multiple
 cards, the first page will contain a list of the board IDs for this purpose.
 
 The Board ID is generated as a SHA-1 hash of the alphabetically sorted list of
-teams on the board (as UTF-8), with trailing newlines (`\n`). 
+teams on the board (as UTF-8), with trailing newlines (`\n`).
 
 # Authors and license
 
-(c) 2010-2014 
-  [Stian Soiland-Reyes](http://orcid.org/0000-0001-9842-9718), 
+(c) 2010-2014
+  [Stian Soiland-Reyes](http://orcid.org/0000-0001-9842-9718),
   [Matthew Gamble](http://orcid.org/0000-0003-4913-1485)
 
 Licensed under the [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/").
-
-
-
