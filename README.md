@@ -21,14 +21,15 @@ to these rules:
 
 This rota between the groups helps ensure that all cards contain a mixture of
 'good' and 'not so good' team, so that it is not easy to predict in advance who
-will win.
+will win. This also makes it quite unlikely for a 3x4 board to win during the
+group stages (~ 0.02%).
 
 
 There is a small chance that several boards would contain the same teams (but
 possibly printed in a different order). The size of the board has been
 optimized to 3x4 as a trade-off between the whole bingo game finishing too
 early and adding some excitement towards the end game.  From our experience,
-the winner(s) will typically be in the quarter finals if about 30-40 cards are
+the winner(s) will typically be in the early quarter finals if about 40 cards are
 being played.
 
 ## Playing
