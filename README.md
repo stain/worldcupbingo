@@ -1,4 +1,4 @@
-# FIFA World Cup 2014 bingo
+# FIFA World Cup 2014 knockout bingo
 
 Generate bingo cards for the [FIFA World Cup](http://www.fifa.com/worldcup/index.html) 2014.
 
