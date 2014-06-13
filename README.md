@@ -6,6 +6,9 @@ Cross out teams as they are *eliminated* from the World Cup. The first player to
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">worldcupbingo.py</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://orcid.org/0000-0001-9842-9718" property="cc:attributionName" rel="cc:attributionURL">Stian Soiland-Reyes et al.</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/stain/worldcupbingo" rel="dct:source">https://github.com/stain/worldcupbingo</a>.
 
+If you are not able to run this generation script, you can always use our 
+[pre-made 100 bingo cards](http://stain.github.io/worldcupbingo/hundreds.html) - but
+only print it once - do not sell duplicates!
 
 ## Card generation
 
@@ -132,7 +135,7 @@ To change the board price, specify it as the last parameter:
     $ python worldcupbingo.py 1 4 4 100 EUR/board >bingo.html
 
 If you are not able to run the generation script, you can always use our 
-pre-made [100 cards](http://stain.github.io/worldcupbingo/hundreds.html) - but
+[pre-made 100 bingo cards](http://stain.github.io/worldcupbingo/hundreds.html) - but
 only print it once - do not sell duplicates!
 
 ## Customization
