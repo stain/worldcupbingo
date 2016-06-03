@@ -13,7 +13,7 @@ only print it once - do not sell duplicates!
 
 ## Card generation
 
-The card (see [example bingo card](http://stain.github.com/worldcupbingo/bingo.html)) is drawn randomly according
+The card (see [example bingo card](https://rawgit.com/stain/worldcupbingo/master/example.html)) is drawn randomly according
 to these rules:
 
 1.   The first team is chosen randomly.
