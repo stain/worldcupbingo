@@ -8,7 +8,7 @@ Cross out teams as they are *eliminated* from the Euros. The first player to com
 <a property="cc:attributionName" rel="cc:attributionURL" href="https://github.com/stain/worldcupbingo/graphs/contributors">et al.</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/stain/worldcupbingo" rel="dct:source">https://github.com/stain/worldcupbingo</a>.
 
 If you are not able to run this generation script, you can always use our
-[pre-made 100 bingo cards](http://stain.github.io/worldcupbingo/hundreds.html) - but
+[pre-made 100 bingo cards](https://rawgit.com/stain/worldcupbingo/master/hundreds.html) - but
 only print it once - do not sell duplicates!
 
 ## Card generation
