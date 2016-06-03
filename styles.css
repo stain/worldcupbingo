@@ -3,12 +3,29 @@ body {
     color: #333333;
     line-height: 1.5;
     margin: 0;
+    text-align: center;
     /*padding: 20px;*/
     letter-spacing: .05em;
+    background-image:url("http://en.mascot.uefa.com/content/img/core/goodies/d1-2048x1536.jpg");
+    background-size: cover;
+    -webkit-print-color-adjust: exact;
 }
 .price {
     font-size: 25px;
     float: right;
+}
+
+.head {
+  width: 100%;
+  border: 1px solid #DDD;
+  margin: 0;
+  text-align: center;
+  background-color: rgba(247,247,247,0.5);
+  padding: 1em;
+}
+.leagalese {
+  font-size:9px
+  text-align:left;
 }
 
 table {
@@ -26,7 +43,7 @@ td {
     margin: 0;
     text-align: center;
     vertical-align: middle;
-    background-color: #F7F7F7;
+    background-color: rgba(247,247,247,0.7);
     padding: 1em;
 }
 
@@ -55,21 +72,36 @@ h1 {
     font-size: 197%;
 }
 
-.bingo,.boardids {
-    page-break-after: always;
+.background {
+  background-image:url("http://en.mascot.uefa.com/content/img/core/goodies/d1-2048x1536.jpg");
+  background-size: cover;
+  background-position: -70px 0px;
 }
+
+.bingo {
+    page-break-after: always;
+    background-color: rgba(247,247,247,0.5);
+}
+
+.boardids {
+    page-break-after: always;
+    background-color: rgba(247,247,247,0.5);
+    text-align: left;
+  }
 
 .rules {
     font-size: 92%;
     margin: 1em 0 1.5em 0;
     border: 1px solid #DDD;
-    background: #FFFFCC;
+    background: rgba(252,222,125,0.95);
     padding: 10px;
     line-height: 1.4;
+    text-align: left;
     /*width: 46em;*/
     border-radius: 10px;
      -moz-border-radius: 10px;
      -webkit-border-radius: 10px;
+
 }
 
 .rules li {
@@ -80,6 +112,7 @@ h1 {
 .gen-rules {
     margin: 0;
     font-size: 90%;
+    text-align: left;
 }
 .hash {
     margin: 0.5em 0;
