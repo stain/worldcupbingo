@@ -78,12 +78,14 @@ flags = {
 
 
 def getGroups():
-    groups = {'A': set(("Albania","France","Romania","Switzerland")),
-              'B': set(("England","Russia","Slovakia","Wales")),
-              'C': set(("Germany","Northern Ireland","Poland","Ukraine")),
-              'D': set(("Croatia","Czech Republic","Spain","Turkey")),
-              'E': set(("Belgium","Italy","Republic of Ireland","Sweden")),
-              'F': set(("Austria","Hungary","Iceland","Portugal")),
+    groups = {'A': set(("Russia","Saudi Arabia","Egypt","Uruguay")),
+              'B': set(("Portugal","Spain","Morocco","Iran")),
+              'C': set(("France","Australia","Peru","Denmark")),
+              'D': set(("Argentina","Iceland","Croatia","Nigeria")),
+              'E': set(("Brazil","Switzerland","Costa Rica","Serbia")),
+              'F': set(("Germany","Mexico","Sweden","South Korea")),
+              'G': set(("Belgium","Panama","Tunisia","England")),
+              'H': set(("Poland","Senegal","Colombia","Japan"))
              }
     allTeams = set()
     longestTeamName = 0
