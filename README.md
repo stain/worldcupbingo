@@ -1,8 +1,8 @@
-# UEFA EURO 2016 knockout bingo
+# World Cup 2018 knockout bingo
 
-Generate bingo cards for the [UEFA European Championships 2016](http://www.uefa.com/uefaeuro/index.html).
+Generate bingo cards for the [FIFA World Cup 2018](http://www.fifa.com/worldcup/).
 
-Cross out teams as they are *eliminated* from the Euros. The first player to complete their bingo card wins.
+Cross out teams as they are *eliminated* from the World Cup. The first player to complete their bingo card wins.
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">worldcupbingo.py</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://orcid.org/0000-0001-9842-9718" property="cc:attributionName" rel="cc:attributionURL">Stian Soiland-Reyes</a> 
 <a property="cc:attributionName" rel="cc:attributionURL" href="https://github.com/stain/worldcupbingo/graphs/contributors">et al.</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/stain/worldcupbingo" rel="dct:source">https://github.com/stain/worldcupbingo</a>.
@@ -103,7 +103,7 @@ so that everyone can track progress on each other's cards.
 ```
 $ python worldcupbingo.py -h
 worldcupbingo.py [bingos] [columns] [rows] [price]
-Generate a Euro 2016 bingo.
+Generate a World Cup 2018 bingo.
 
   bingos  - number of bingo boards to generate. Default: 1
   rows    - number of rows on bingo board. Default: 4
