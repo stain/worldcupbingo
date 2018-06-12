@@ -171,8 +171,11 @@ teams on the board (as UTF-8), with trailing newlines (`\n`).
 
 # Authors and license
 
-(c) 2010-2014
-  [Stian Soiland-Reyes](http://orcid.org/0000-0001-9842-9718),
-  [Matthew Gamble](http://orcid.org/0000-0003-4913-1485)
+(c) 2010-2018
+  [Stian Soiland-Reyes](https://orcid.org/0000-0001-9842-9718),
+  [Matthew Gamble](https://orcid.org/0000-0003-4913-1485),
+  [Jiten Bhagat](https://github.com/jits),
+  [Finn Bacall](http://orcid.org/0000-0002-0048-3300),
+  [Robert Haines](http://orcid.org/0000-0002-9538-7919)
 
 Licensed under the [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/").
