@@ -8,12 +8,12 @@ Cross out teams as they are *eliminated* from the Euro Cup. The first player to 
 <a property="cc:attributionName" rel="cc:attributionURL" href="https://github.com/stain/worldcupbingo/graphs/contributors">et al.</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/stain/worldcupbingo" rel="dct:source">https://github.com/stain/worldcupbingo</a>.
 
 If you are not able to run this generation script, you can always use our
-[pre-made 100 bingo cards](https://rawgit.com/stain/worldcupbingo/master/hundreds.html) - but
+[pre-made 100 bingo cards](https://raw.githack.com/stain/worldcupbingo/main/hundreds.html) - but
 only print it once - do not sell duplicates!
 
 ## Card generation
 
-The card (see [example bingo card](https://rawgit.com/stain/worldcupbingo/master/example.html)) is drawn randomly according
+The card (see [example bingo card](https://raw.githack.com/stain/worldcupbingo/main/example.html)) is drawn randomly according
 to these rules:
 
 1.   The first team is chosen randomly.
