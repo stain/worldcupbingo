@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # -*- coding: utf8 -*-
 
 import random
@@ -9,7 +9,7 @@ from string import Template
 import requests
 
 DEFAULT_BINGOS=1
-DEFAULT_ROWS=4
+DEFAULT_ROWS=3
 DEFAULT_COLUMNS=3
 DEFAULT_PRICE="£2/board"
 DEBUG=False
@@ -33,12 +33,13 @@ flags = {
     "Colombia":"http://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colombia.svg/2000px-Flag_of_Colombia.svg.png",
     "Costa Rica": "http://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Costa_Rica_%28state%29.svg/2000px-Flag_of_Costa_Rica_%28state%29.svg.png",
     "Croatia": "http://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Croatia.svg/2000px-Flag_of_Croatia.svg.png",
-    "Czech Republic": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_Czech_Republic.svg/2000px-Flag_of_the_Czech_Republic.svg.png",
-    "Côte d'Ivoire": "http://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Flag_of_Cote_d%27Ivoire.svg/2000px-Flag_of_Cote_d.svg.png",
+    "Czech Republic": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_Czech_Republic.svg/800px-Flag_of_the_Czech_Republic.svg.png",
+    "Côte d'Ivoire": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_C%C3%B4te_d%27Ivoire.svg/800px-Flag_of_C%C3%B4te_d%27Ivoire.svg.png",
     "Denmark": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/2000px-Flag_of_Denmark.svg.png",
     "Ecuador":"http://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Flag_of_Ecuador.svg/2000px-Flag_of_Ecuador.svg.png",
     "Egypt": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/125px-Flag_of_Egypt.svg.png",
     "England":"http://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/2000px-Flag_of_England.svg.png",
+    "Finland":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Flag_of_Finland_with_border.svg/1024px-Flag_of_Finland_with_border.svg.png",
     "France":"http://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/2000px-Flag_of_France.svg.png",
     "Germany": "http://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/2000px-Flag_of_Germany.svg.png",
     "Ghana":"http://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Ghana.svg/2000px-Flag_of_Ghana.svg.png",
@@ -56,7 +57,8 @@ flags = {
     "Netherlands": "http://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/2000px-Flag_of_the_Netherlands.svg.png",
     "New Zealand": "http://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Flag_of_New_Zealand.svg/2000px-Flag_of_New_Zealand.svg.png",
     "Nigeria": "http://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/2000px-Flag_of_Nigeria.svg.png",
-    "Northern Ireland":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Flag_of_Northern_Ireland.svg/2000px-Flag_of_Northern_Ireland.svg.png",
+    "North Macedonia":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_North_Macedonia.svg/800px-Flag_of_North_Macedonia.svg.png",
+    "Northern Ireland":"https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Flag_of_Northern_Ireland_%281953%E2%80%931972%29.svg/1024px-Flag_of_Northern_Ireland_%281953%E2%80%931972%29.svg.png",
     "Panama": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Flag_of_Panama.svg/125px-Flag_of_Panama.svg.png",
     "Paraguay": "http://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Flag_of_Paraguay.svg/2000px-Flag_of_Paraguay.svg.png",
     "Peru": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Peru.svg/125px-Flag_of_Peru.svg.png",
@@ -66,13 +68,14 @@ flags = {
     "Romania":"https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flag_of_Romania.svg/2000px-Flag_of_Romania.svg.png",
     "Russia":"http://upload.wikimedia.org/wikipedia/en/thumb/f/f3/Flag_of_Russia.svg/2000px-Flag_of_Russia.svg.png",
     "Saudi Arabia": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/125px-Flag_of_Saudi_Arabia.svg.png",
+    "Scotland": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Flag_of_Scotland.svg/1024px-Flag_of_Scotland.svg.png",
     "Senegal": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/125px-Flag_of_Senegal.svg.png",
     "Serbia":"http://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/2000px-Flag_of_Serbia.svg.png",
     "Slovakia": "http://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Flag_of_Slovakia.svg/2000px-Flag_of_Slovakia.svg.png",
     "Slovenia":"http://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Flag_of_Slovenia.svg/2000px-Flag_of_Slovenia.svg.png",
     "South Africa": "http://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_South_Africa.svg/2000px-Flag_of_South_Africa.svg.png",
     "South Korea":"http://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/2000px-Flag_of_South_Korea.svg.png",
-    "Spain": "http://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/2000px-Flag_of_Spain.svg.png",
+    "Spain": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Bandera_de_Espa%C3%B1a.svg/750px-Bandera_de_Espa%C3%B1a.svg.png",
     "Sweden": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/2000px-Flag_of_Sweden.svg.png",
     "Switzerland": "http://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/2000px-Flag_of_Switzerland.svg.png",
     "Tunisia": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/125px-Flag_of_Tunisia.svg.png",
@@ -80,19 +83,17 @@ flags = {
     "Ukraine": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/2000px-Flag_of_Ukraine.svg.png",
     "United States": "http://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/2000px-Flag_of_the_United_States.svg.png",
     "Uruguay": "http://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/2000px-Flag_of_Uruguay.svg.png",
-    "Wales":"https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Flag_of_Wales_2.svg/2000px-Flag_of_Wales_2.svg.png"
+    "Wales":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_Wales_%281959%E2%80%93present%29.svg/800px-Flag_of_Wales_%281959%E2%80%93present%29.svg.png"
     }
 
 
 def getGroups():
-    groups = {'A': set(("Russia","Saudi Arabia","Egypt","Uruguay")),
-              'B': set(("Portugal","Spain","Morocco","Iran")),
-              'C': set(("France","Australia","Peru","Denmark")),
-              'D': set(("Argentina","Iceland","Croatia","Nigeria")),
-              'E': set(("Brazil","Switzerland","Costa Rica","Serbia")),
-              'F': set(("Germany","Mexico","Sweden","South Korea")),
-              'G': set(("Belgium","Panama","Tunisia","England")),
-              'H': set(("Poland","Senegal","Colombia","Japan"))
+    groups = {'A': set(("Turkey","Italy","Wales","Switzerland")),
+              'B': set(("Denmark","Finland","Belgium","Russia")),
+              'C': set(("Netherlands","Ukraine","Austria","North Macedonia")),
+              'D': set(("England","Croatia","Scotland","Czech Republic")),
+              'E': set(("Spain","Sweden","Poland","Slovakia")),
+              'F': set(("Hungary","Portugal","France","Germany")),
              }
     allTeams = set()
     longestTeamName = 0
@@ -174,6 +175,9 @@ def boardAsTable(board, rows, columns):
     return html
 
 def checkFlags():
+    _,teams,_ = getGroups()
+    for team in teams.keys():
+        flags.get(team)
     for country,flag_url in list(flags.items()):
         r = requests.get(flag_url)
         status = "✓" if r.status_code == requests.codes.ok else "✗"
@@ -182,7 +186,7 @@ def checkFlags():
 
 def help(cmd):
     print(("""%s [bingos] [columns] [rows] [price]
-Generate a World Cup 2018 bingo card.
+Generate a Euro 2020 bingo card.
 
   bingos  - number of bingo boards to generate. Default: %s
   rows    - number of rows on bingo board. Default: %s
