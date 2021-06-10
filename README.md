@@ -1,8 +1,8 @@
-# World Cup 2018 knockout bingo
+# Euro 2020 knockout bingo
 
-Generate bingo cards for the [FIFA World Cup 2018](http://www.fifa.com/worldcup/).
+Generate bingo cards for the [UEFO EURO 2020](https://www.uefa.com/uefaeuro-2020/).
 
-Cross out teams as they are *eliminated* from the World Cup. The first player to complete their bingo card wins.
+Cross out teams as they are *eliminated* from the Euro Cup. The first player to complete their bingo card wins.
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">worldcupbingo.py</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://orcid.org/0000-0001-9842-9718" property="cc:attributionName" rel="cc:attributionURL">Stian Soiland-Reyes</a> 
 <a property="cc:attributionName" rel="cc:attributionURL" href="https://github.com/stain/worldcupbingo/graphs/contributors">et al.</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/stain/worldcupbingo" rel="dct:source">https://github.com/stain/worldcupbingo</a>.
@@ -60,7 +60,7 @@ so that everyone can track progress on each other's cards.
    to the other player's cards. (In a multi-site setup, you can instead choose to
    publish the generated HTML on the Intranet)
 6. As the competition progresses, players will tick off their losing teams
-   (cheering for everyone on their board to drop out of the World Cup!).
+   (cheering for everyone on their board to drop out of the Cup!).
 7. The winner(s) of the bingo are the first player(s) to complete their board
    according to their team's knockout. It is not the time of the
    physical completion of the board that matters (you do not need to arrive superearly
@@ -103,7 +103,7 @@ so that everyone can track progress on each other's cards.
 ```
 $ python worldcupbingo.py -h
 worldcupbingo.py [bingos] [columns] [rows] [price]
-Generate a World Cup 2018 bingo.
+Generate a Euro 2020 bingo card.
 
   bingos  - number of bingo boards to generate. Default: 1
   rows    - number of rows on bingo board. Default: 4
@@ -127,7 +127,6 @@ To generate many cards in one go (printed on separate pages), add the number of 
     $ python worldcupbingo.py 30 >bingo.html
 
 You can also specify the board size, which might be useful if you are printing particularly few or many cards:
-
 
     $ python worldcupbingo.py 1 3 3 "$5/board" >bingo.html
 
@@ -171,11 +170,11 @@ teams on the board (as UTF-8), with trailing newlines (`\n`).
 
 # Authors and license
 
-(c) 2010-2018
+(c) 2010-2021
   [Stian Soiland-Reyes](https://orcid.org/0000-0001-9842-9718),
   [Matthew Gamble](https://orcid.org/0000-0003-4913-1485),
   [Jiten Bhagat](https://github.com/jits),
-  [Finn Bacall](http://orcid.org/0000-0002-0048-3300),
-  [Robert Haines](http://orcid.org/0000-0002-9538-7919)
+  [Finn Bacall](https://orcid.org/0000-0002-0048-3300),
+  [Robert Haines](https://orcid.org/0000-0002-9538-7919)
 
 Licensed under the [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/").
