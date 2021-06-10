@@ -100,7 +100,7 @@ so that everyone can track progress on each other's cards.
 
 ## Script usage
 
-Download the latest release from <https://github.com/stain/worldcupbingo> and make sure you have [Python3](https://www.python.org/) installed.
+Download the latest release from <https://github.com/stain/worldcupbingo/releases> and make sure you have [Python3](https://www.python.org/) installed.
 
 ```
 $ python3 worldcupbingo.py -h
@@ -179,4 +179,6 @@ teams on the board (as UTF-8), with trailing newlines (`\n`).
   [Finn Bacall](https://orcid.org/0000-0002-0048-3300),
   [Robert Haines](https://orcid.org/0000-0002-9538-7919)
 
-Licensed under the [Creative Commons Attribution 4.0 International License](http://creativecommons.org/licenses/by/4.0/").
+Licensed under the [Creative Commons Attribution 4.0 International License](https://creativecommons.org/licenses/by/4.0/).
+
+[Contributions](https://github.com/stain/worldcupbingo/pulls) welcome!
