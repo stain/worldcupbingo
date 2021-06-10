@@ -4,9 +4,9 @@
 import random
 import sys
 import codecs
-import hashlib
 from string import Template
 import requests
+import uuid
 
 DEFAULT_BINGOS=1
 DEFAULT_ROWS=3
@@ -149,13 +149,15 @@ def generateBoard(rows, columns):
 
     return board
 
+NAMESPACE_WORLDCUP=uuid.UUID("dedaeff9-2834-51b1-afda-9d8e2ea53d38")
+
 def getBoardHash(board):
-    boardHash = hashlib.sha1()
+    s=[]
     board.sort()
     for t in board:
-        boardHash.update(t.encode("utf8")+"\n".encode('utf-8'))
-    return boardHash.hexdigest()
-
+        s.append(t)
+    joined = "\n".join(s)
+    return str(uuid.uuid5(NAMESPACE_WORLDCUP, joined))
 
 def boardAsTable(board, rows, columns):
     html = "<table>\n"
@@ -182,7 +184,6 @@ def checkFlags():
         r = requests.get(flag_url)
         status = "✓" if r.status_code == requests.codes.ok else "✗"
         print(("%s - %s" % (country, status)))
-
 
 def help(cmd):
     print(("""%s [bingos] [columns] [rows] [price]
