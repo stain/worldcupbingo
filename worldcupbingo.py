@@ -9,9 +9,9 @@ import uuid
 import json
 
 DEFAULT_BINGOS=1
-DEFAULT_ROWS=3
+DEFAULT_ROWS=6
 DEFAULT_COLUMNS=3
-DEFAULT_PRICE="£2/board"
+DEFAULT_PRICE="£5/board"
 DEBUG=False
 
 cellTemplate = Template(open("tablecell.html").read())
