@@ -1,20 +1,19 @@
-# Euro 2020 knockout bingo
+# World Cup 2026 knockout bingo
 
-Generate bingo cards for the [UEFO EURO 2020](https://www.uefa.com/uefaeuro-2020/).
+Generate bingo cards for the 2026 World Cup.
 
-Cross out teams as they are *eliminated* from the Euro Cup. The first player to complete their bingo card wins.
+Cross out teams as they are *eliminated* from the World Cup. The first player to complete their bingo card wins.
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">worldcupbingo.py</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://orcid.org/0000-0001-9842-9718" property="cc:attributionName" rel="cc:attributionURL">Stian Soiland-Reyes</a> 
 <a property="cc:attributionName" rel="cc:attributionURL" href="https://github.com/stain/worldcupbingo/graphs/contributors">et al.</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/stain/worldcupbingo" rel="dct:source">https://github.com/stain/worldcupbingo</a>.
 
 If you are not able to run this generation script, you can always use our
-[pre-made 100 bingo cards](https://stain.github.io/worldcupbingo/hundreds.html) - but
+pre-made 100 bingo cards - but
 only print it once - do not sell duplicates!
 
 ## Card generation
 
-The card (see [example bingo card](https://stain.github.io/worldcupbingo/example.html)) is drawn randomly according
-to these rules:
+Each card is drawn randomly according to these rules:
 
 1.   The first team is chosen randomly.
 2.   The *group* of the chosen team is removed from the pool of possible teams.
@@ -100,7 +99,7 @@ so that everyone can track progress on each other's cards.
 
 ## Script usage
 
-Download the latest release from <https://github.com/stain/worldcupbingo/releases> and make sure you have [Python3](https://www.python.org/) installed.
+Download the latest release and make sure you have [Python3](https://www.python.org/) installed.
 
 ```
 $ python3 worldcupbingo.py -h
