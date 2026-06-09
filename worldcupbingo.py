@@ -9,6 +9,8 @@ import uuid
 import json
 
 DEFAULT_BINGOS=1
+# Try to make sure there's a ratio of 2:3 between number of teams and board cells
+# e.g. 12 teams give 6X3 board (18 cells), 9 teams give 3X3 board (9 cells)
 DEFAULT_ROWS=6
 DEFAULT_COLUMNS=3
 DEFAULT_PRICE="£5/board"
