@@ -11,9 +11,9 @@ import json
 DEFAULT_BINGOS=1
 # Try to make sure there's a ratio of 2:3 between number of teams and board cells
 # e.g. 12 teams give 6X3 board (18 cells), 9 teams give 3X3 board (9 cells)
-DEFAULT_ROWS=6
+DEFAULT_ROWS=5
 DEFAULT_COLUMNS=3
-DEFAULT_PRICE="£5/board"
+DEFAULT_PRICE="£2/board"
 DEBUG=False
 
 cellTemplate = Template(open("tablecell.html").read())
@@ -48,6 +48,7 @@ def main(cmd,bingos=DEFAULT_BINGOS,rows=DEFAULT_ROWS,columns=DEFAULT_COLUMNS,*ar
 
     boards = ""
     boardids = []
+    boardCSV = []
     for n in range(int(bingos)):
         board = generateBoard(int(rows), int(columns))
         boardHtml = boardAsTable(board, int(rows), int(columns))
@@ -55,13 +56,17 @@ def main(cmd,bingos=DEFAULT_BINGOS,rows=DEFAULT_ROWS,columns=DEFAULT_COLUMNS,*ar
         boardids.append(boardId)
         boards += boardTemplate.substitute(board=boardHtml,
 		boardId=boardId, price=price)
+        board.sort()
+        boardCSV += [boardId + "," + ",".join(board)]
     boardids.sort()
+    boardCSV.sort()
     if (len(boardids) > 1):
         ids = boardidsTemplate.substitute(boardids=
 		"\n</p><p>\n".join(boardids))
     else:
         ids = "" # No point for a single board!
     print((mainTemplate.substitute(boards=boards, ids=ids)))
+    print(*boardCSV, sep="\n", file=sys.stderr)
 
 def generateBoard(rows, columns):
     groups,teams,longestTeamName = getGroups()
